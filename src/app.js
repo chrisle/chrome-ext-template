@@ -1,9 +1,5 @@
-App.init = function() {
-  this.pp("init.");
-};
+require(['app/main'], function(Main) {
 
-App.pp = function(str) {
-  if (this.DEBUG_MODE) {
-    console.log("[" + this.APP_NAME + "]: " + str);
-  }
-};
+  var main = new Main();
+
+});

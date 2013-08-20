@@ -1,11 +1,20 @@
 {
   "manifest_version": 2,
 
-  "name": "Application",
+  "name": "Searchlight Orb",
   "version": "0.0.1",
+
+  "permissions": [
+    "webNavigation"
+  ],
 
   "browser_action": {
     "default_icon" : "images/icon.png"
+  },
+
+  "background": {
+    "scripts": ["src/event_bus.js"],
+    "persistent": false
   },
 
   "content_scripts": [
@@ -30,10 +39,23 @@
        * Add your JavaScript files for this extension.
        */
       "js": [
-        "src/config.js",
         "vendor/require.js",
+        "vendor/require_chrome_load.js",
+        "src/config.js",
         "src/app.js"
-      ]
+      ],
+
+      /**
+       * Content scripts run as soon as the DOM starts to load
+       */
+      "run_at": "document_start"
     }
+  ],
+
+  "web_accessible_resources": [
+    "src/*",
+    "html/*",
+    "css/*",
+    "images/*"
   ]
 }
