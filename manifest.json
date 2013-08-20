@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "Application",
+  "version": "0.0.1",
+
+  "browser_action": {
+    "default_icon" : "images/icon.png"
+  },
+
+  "content_scripts": [
+    {
+      /**
+       * Choose the domains you want this extension to have access to.
+       */
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file://*/*"
+      ],
+
+      /**
+       * Add your CSS files for this extension.
+       */
+      "css": [
+        "css/styles.css"
+      ],
+
+      /**
+       * Add your JavaScript files for this extension.
+       */
+      "js": [
+        "src/config.js",
+        "vendor/require.js",
+        "src/app.js"
+      ]
+    }
+  ]
+}
